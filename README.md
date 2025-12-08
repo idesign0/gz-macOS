@@ -97,3 +97,9 @@
       ros2 run ros_gz_bridge parameter_bridge
 
   If these run without protobuf runtime errors, the environment is correctly configured.
+
+  ---
+
+  ## Result
+
+  <img width="1440" height="900" alt="Screenshot 2025-12-08 at 18 27 10" src="https://github.com/user-attachments/assets/86688ca6-475f-4d57-a2dc-e895e1385ca2" />
