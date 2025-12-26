@@ -68,20 +68,23 @@
       git clone --recurse-submodules <this-repo>
       cd <this-repo>
 
-  Build using **colcon**:
-
+Build Protobuf First:
+```bash
+    colcon build \
+    --packages-select protobuf \
+    --merge-install \
+    --executor parallel --parallel-workers $(sysctl -n hw.ncpu) \
+    --cmake-args -DCMAKE_TOOLCHAIN_FILE=~/kilted-ros2/src/cmake/toolchain.cmake 
+```
+Build rest of gazebo-ionic packages:
+```bash
       colcon build --merge-install \
-        ---executor parallel \
-        --parallel-workers $(sysctl -n hw.ncpu) \
-        --cmake-args \
-          -DBUILD_TESTING=OFF \
-          -DCMAKE_MACOSX_RPATH=FALSE \
-          -DCMAKE_INSTALL_NAME_DIR=$(pwd)/install/lib \
-          -DCMAKE_BUILD_TYPE=Release
-
+        --packages-ignore protobuf \
+        --executor parallel --parallel-workers $(sysctl -n hw.ncpu) \
+        --cmake-args -DCMAKE_TOOLCHAIN_FILE=~/kilted-ros2/src/cmake/toolchain.cmake 
+```
   ### Notes
-
-  - `-DCMAKE_MACOSX_RPATH=FALSE` avoids incorrect RPATH rewriting on macOS.
+  - make sure there no trace of `protobuf` from homwbrew
   - `--merge-install` simplifies linking for Gazebo + ROS 2.
   - Do NOT mix Homebrew protobuf with source-built protobuf.
 
