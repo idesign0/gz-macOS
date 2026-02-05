@@ -89,3 +89,17 @@ gz sim -v 4 -g
 ## Result
 
 ![Gazebo Harmonic Screenshot](https://github.com/user-attachments/assets/86688ca6-475f-4d57-a2dc-e895e1385ca2)
+
+# Gazebo GUI Plugin Fixes for macOS
+
+If GUI plugins fail to load due to missing libraries, run:
+
+```bash
+# Add the install lib path to the library search path
+install_name_tool -add_rpath $HOME/gz-harmonic/install/lib \
+  $HOME/gz-harmonic/install/lib/libgz-sim8-gz.8.10.0.dylib
+
+# Fix the EntityContextMenuPlugin library reference
+install_name_tool -change @rpath/libgz-sim8-rendering.8.dylib \
+  $HOME/gz-harmonic/install/lib/libgz-sim8-rendering.8.dylib \
+  $HOME/gz-harmonic/install/lib/gz-sim-8/plugins/gui/libEntityContextMenuPlugin.dylib
