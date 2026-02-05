@@ -88,7 +88,7 @@ gz sim -v 4 -g
 
 ## Result
 
-![Gazebo Harmonic Screenshot](https://github.com/user-attachments/assets/86688ca6-475f-4d57-a2dc-e895e1385ca2)
+<img width="1440" height="900" alt="Screenshot 2026-02-05 at 14 32 05" src="https://github.com/user-attachments/assets/b2ff42ca-2526-4312-a561-e76012f1ccba" />
 
 # Gazebo GUI Plugin Fixes for macOS
 
