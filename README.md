@@ -3,6 +3,16 @@
   This repository contains a custom source-based build of **Gazebo Ionic** and related Ignition/GZ libraries as **submodules**, created to avoid issues caused by mismatched dependency versions in Homebrew—especially **protobuf**.
 
   ---
+  ## ⚠️ Preliminary Instructions
+  
+  It is recommended to **first try the official Gazebo Ionic macOS source installation guide**:
+  
+  🔗 [Gazebo Ionic macOS Installation](https://gazebosim.org/docs/ionic/install_osx_src/)
+  
+  - Follow the guide **up to and including the “Install Dependencies” section**.
+  - If the official build fails or causes issues (e.g., protobuf version conflicts on macOS/Apple Silicon), continue with this repository’s instructions **after installing the dependencies**.
+  - This ensures that your system has the required dependencies while letting this repository handle patched builds and ROS 2 integration.
+
 
   ## ⚠️ Why this repository exists
 
