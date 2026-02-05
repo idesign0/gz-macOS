@@ -103,3 +103,4 @@ install_name_tool -add_rpath $HOME/gz-harmonic/install/lib \
 install_name_tool -change @rpath/libgz-sim8-rendering.8.dylib \
   $HOME/gz-harmonic/install/lib/libgz-sim8-rendering.8.dylib \
   $HOME/gz-harmonic/install/lib/gz-sim-8/plugins/gui/libEntityContextMenuPlugin.dylib
+```
