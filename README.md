@@ -113,13 +113,15 @@ colcon build \
 
   After building:
 
+```bash
     source install/setup.zsh
     # launch server in one terminal
     gz sim -v 4 shapes.sdf -s
 
     # launch gui in a separate terminal
     # remember to source the workspace setup script
-gz sim -v 4 -g
+    gz sim -v 4 -g
+  ```
 
   If these run without protobuf runtime errors, the environment is correctly configured.
 
