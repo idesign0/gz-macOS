@@ -68,9 +68,12 @@ Build all Gazebo Harmonic packages from source:
 colcon build \
   --executor parallel \
   --parallel-workers $(sysctl -n hw.ncpu) \
-  --cmake-args -DBUILD_TESTING=OFF \
-               -DCMAKE_BUILD_TYPE=Release \
-               -DBOOST_ROOT=$(pwd)/src/dependencies/boost-1.89 \
+  --cmake-args \
+      -DBUILD_TESTING=OFF \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DBOOST_ROOT=$(pwd)/src/dependencies/boost-1.89 \
+      -DCMAKE_MACOSX_RPATH=FALSE \
+      -DCMAKE_INSTALL_NAME_DIR=$(pwd)/install/lib \
   --merge-install \
   --continue-on-error
 ```
@@ -99,18 +102,3 @@ gz sim -v 4 -g
 ## Result
 
 <img width="1440" height="900" alt="Screenshot 2026-02-05 at 14 32 05" src="https://github.com/user-attachments/assets/b2ff42ca-2526-4312-a561-e76012f1ccba" />
-
-# Gazebo GUI Plugin Fixes for macOS
-
-If GUI plugins fail to load due to missing libraries, run:
-
-```bash
-# Add the install lib path to the library search path
-install_name_tool -add_rpath $HOME/gz-harmonic/install/lib \
-  $HOME/gz-harmonic/install/lib/libgz-sim8-gz.8.10.0.dylib
-
-# Fix the EntityContextMenuPlugin library reference
-install_name_tool -change @rpath/libgz-sim8-rendering.8.dylib \
-  $HOME/gz-harmonic/install/lib/libgz-sim8-rendering.8.dylib \
-  $HOME/gz-harmonic/install/lib/gz-sim-8/plugins/gui/libEntityContextMenuPlugin.dylib
-```
