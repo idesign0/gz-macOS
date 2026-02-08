@@ -96,9 +96,12 @@ colcon build \
     --packages-ignore protobuf \
     --executor parallel \
     --parallel-workers $(sysctl -n hw.ncpu) \
-    --cmake-args -DBUILD_TESTING=OFF \
-                -DCMAKE_BUILD_TYPE=Release \
-                -DBOOST_ROOT=$(pwd)/src/dependencies/boost-1.89 \
+    --cmake-args \
+        -DBUILD_TESTING=OFF \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DBOOST_ROOT=$(pwd)/src/dependencies/boost-1.89 \
+        -DCMAKE_MACOSX_RPATH=FALSE \
+        -DCMAKE_INSTALL_NAME_DIR=$(pwd)/install/lib \
     --merge-install \
     --continue-on-error
 ```
@@ -130,18 +133,3 @@ colcon build \
   ## Result
 
   <img width="1440" height="900" alt="Screenshot 2025-12-08 at 18 27 10" src="https://github.com/user-attachments/assets/86688ca6-475f-4d57-a2dc-e895e1385ca2" />
-
-## Gazebo GUI Plugin Fixes for macOS
-
-If GUI plugins fail to load due to missing libraries, run:
-
-```bash
-# Add the install lib path to the library search path
-install_name_tool -add_rpath $HOME/gz-ionic/install/lib \
-  $HOME/gz-ionic/install/lib/libgz-sim9-gz.9.5.0.dylib
-
-# Fix the EntityContextMenuPlugin library reference
-install_name_tool -change @rpath/libgz-sim9-rendering.9.dylib \
-  $HOME/gz-ionic/install/lib/libgz-sim9-rendering.9.dylib \
-  $HOME/gz-ionic/install/lib/gz-sim-9/plugins/gui/libEntityContextMenuPlugin.dylib
-```
