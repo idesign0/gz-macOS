@@ -58,7 +58,7 @@ This repo includes:
 Clone the repository with all submodules:
 
 ```bash
-git clone --recurse-submodules <this-repo>
+git clone --recurse-submodules https://github.com/idesign0/gz-macOS.git -b harmonic
 cd <this-repo>
 ```
 
