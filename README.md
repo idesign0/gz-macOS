@@ -1,13 +1,13 @@
-  # Building Gazebo Ionic + ROS 2 Integration on macOS (Apple Silicon)
+  # Building Gazebo Jetty + ROS 2 Integration on macOS (Apple Silicon)
 
-  This repository contains a custom source-based build of **Gazebo Ionic** and related Ignition/GZ libraries as **submodules**, created to avoid issues caused by mismatched dependency versions in Homebrew—especially **protobuf**.
+  This repository contains a custom source-based build of **Gazebo Jetty** and related Ignition/GZ libraries as **submodules**, created to avoid issues caused by mismatched dependency versions in Homebrew—especially **protobuf**.
 
   ---
   ## ⚠️ Preliminary Instructions
   
-  It is recommended to **first try the official Gazebo Ionic macOS source installation guide**:
+  It is recommended to **first try the official Gazebo Jetty macOS source installation guide**:
   
-  🔗 [Gazebo Ionic macOS Installation](https://gazebosim.org/docs/ionic/install_osx_src/)
+  🔗 [Gazebo Jetty macOS Installation](https://gazebosim.org/docs/jetty/install_osx_src/)
   
   - Follow the guide **up to and including the “Install Dependencies” section**.
   - If the official build fails or causes issues (e.g., protobuf version conflicts on macOS/Apple Silicon), continue with this repository’s instructions **after installing the dependencies**.
@@ -16,7 +16,7 @@
 
   ## ⚠️ Why this repository exists
 
-  While building `gz-fuel-tools10` (and therefore the Gazebo Ionic stack), the following error appears:
+  While building `gz-fuel-tools10` (and therefore the Gazebo Jetty stack), the following error appears:
 
       error: "Protobuf C++ gencode is built with an incompatible version of"
       error: "Protobuf C++ headers/runtime. See"
@@ -31,10 +31,10 @@
       #error "https://protobuf.dev/support/cross-version-runtime-guarantee/#cpp"
       #endif
 
-  Gazebo Ionic currently expects **Protobuf 32.1** (runtime version `6032001`), but Homebrew installs **Protobuf 33.1**, which is ABI-incompatible.
+  Gazebo Jetty currently expects **Protobuf 32.0** (runtime version `6032001`), but Homebrew installs **Protobuf 33.1**, which is ABI-incompatible.
 
   ### ❗ Result  
-  `gz-msgs11`, Gazebo Ionic, and `ros_gz_bridge` fail to build.
+  `gz-msgs11`, Gazebo Jetty, and `ros_gz_bridge` fail to build.
 
   ---
 
@@ -46,14 +46,14 @@
       # or
       brew unlink protobuf
 
-  Then build the correct protobuf version (**32.1**) from source, which is included in this repository under:
+  Then build the correct protobuf version (**32.0**) from source, which is included in this repository under:
 
       dependencies/protobuf
 
   This ensures that:
 
   - `gz-msgs11`
-  - Gazebo Ionic dependencies
+  - Gazebo Jetty dependencies
   - `ros_gz_bridge`
 
   are all built using the **same protobuf runtime version**.
@@ -64,7 +64,7 @@
 
   This repo includes:
 
-  - Gazebo Ionic source submodules (`gz-math`, `gz-msgs11`, `gz-fuel-tools10`, etc.)
+  - Gazebo Jetty source submodules (`gz-math`, `gz-msgs11`, `gz-fuel-tools10`, etc.)
   - Patches for macOS builds
   - ROS 2 integration compatibility
   - Ability to build the entire stack from source without relying on Homebrew

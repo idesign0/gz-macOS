@@ -5,63 +5,63 @@
 [submodule "gz-utils"]
 	path = gz-utils
 	url = https://github.com/gazebosim/gz-utils
-	branch = gz-utils3
+	branch = gz-utils4
 [submodule "gz-cmake"]
 	path = gz-cmake
 	url = https://github.com/gazebosim/gz-cmake
-	branch = gz-cmake4
+	branch = gz-cmake5
 [submodule "gz-common"]
 	path = gz-common
 	url = https://github.com/gazebosim/gz-common
-	branch = gz-common6
+	branch = gz-common7
 [submodule "gz-math"]
 	path = gz-math
 	url = https://github.com/gazebosim/gz-math
-	branch = gz-math8
+	branch = gz-math9
 [submodule "gz-plugin"]
 	path = gz-plugin
 	url = https://github.com/gazebosim/gz-plugin
-	branch = gz-plugin3
+	branch = gz-plugin4
 [submodule "gz-msgs"]
 	path = gz-msgs
 	url = https://github.com/gazebosim/gz-msgs
-	branch = gz-msgs11
+	branch = gz-msgs12
 [submodule "sdformat"]
 	path = sdformat
 	url = https://github.com/gazebosim/sdformat
-	branch = sdf15
+	branch = sdf16
 [submodule "gz-transport"]
 	path = gz-transport
 	url = https://github.com/gazebosim/gz-transport
-	branch = gz-transport14
+	branch = gz-transport15
 [submodule "gz-fuel-tools"]
 	path = gz-fuel-tools
 	url = https://github.com/gazebosim/gz-fuel-tools
-	branch = gz-fuel-tools10
+	branch = gz-fuel-tools11
 [submodule "gz-rendering"]
 	path = gz-rendering
 	url = https://github.com/gazebosim/gz-rendering
-	branch = gz-rendering9
+	branch = gz-rendering10
 [submodule "gz-sensors"]
 	path = gz-sensors
 	url = https://github.com/gazebosim/gz-sensors
-	branch = gz-sensors9
+	branch = gz-sensors10
 [submodule "gz-physics"]
 	path = gz-physics
 	url = https://github.com/gazebosim/gz-physics
-	branch = gz-physics8
+	branch = gz-physics9
 [submodule "gz-gui"]
 	path = gz-gui
 	url = https://github.com/gazebosim/gz-gui
-	branch = gz-gui9
+	branch = gz-gui10
 [submodule "gz-launch"]
 	path = gz-launch
 	url = https://github.com/gazebosim/gz-launch
-	branch = gz-launch8
+	branch = gz-launch9
 [submodule "gz-sim"]
 	path = gz-sim
 	url = https://github.com/gazebosim/gz-sim
-	branch = gz-sim9
+	branch = gz-sim10
 [submodule "dependencies/protobuf"]
 	path = dependencies/protobuf
 	url = https://github.com/protocolbuffers/protobuf.git
