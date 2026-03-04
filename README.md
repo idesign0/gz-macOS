@@ -75,7 +75,7 @@
 
   Clone the repository with all submodules:
 
-      git clone --recurse-submodules <this-repo>
+      git clone --recurse-submodules https://github.com/idesign0/gz-macOS.git -b jetty
       cd <this-repo>
 
 Build Protobuf First:
@@ -90,7 +90,7 @@ colcon build \
     --merge-install \
     --continue-on-error
 ```
-Build rest of gazebo-ionic packages:
+Build rest of gazebo-jetty packages:
 ```bash
 colcon build \
     --packages-ignore protobuf \
