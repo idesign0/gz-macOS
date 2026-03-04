@@ -16,13 +16,13 @@
 
   ## ⚠️ Why this repository exists
 
-  While building `gz-fuel-tools10` (and therefore the Gazebo Jetty stack), the following error appears:
+  While building `gz-fuel-tools11` (and therefore the Gazebo Jetty stack), the following error appears:
 
       error: "Protobuf C++ gencode is built with an incompatible version of"
       error: "Protobuf C++ headers/runtime. See"
       error: "https://protobuf.dev/support/cross-version-runtime-guarantee/#cpp"
 
-  This originates from `gz-msgs11`:
+  This originates from `gz-msgs12`:
 
       #include "google/protobuf/runtime_version.h"
       #if PROTOBUF_VERSION != 6032001
@@ -34,7 +34,7 @@
   Gazebo Jetty currently expects **Protobuf 32.0** (runtime version `6032001`), but Homebrew installs **Protobuf 33.1**, which is ABI-incompatible.
 
   ### ❗ Result  
-  `gz-msgs11`, Gazebo Jetty, and `ros_gz_bridge` fail to build.
+  `gz-msgs12`, Gazebo Jetty, and `ros_gz_bridge` fail to build.
 
   ---
 
@@ -52,7 +52,7 @@
 
   This ensures that:
 
-  - `gz-msgs11`
+  - `gz-msgs12`
   - Gazebo Jetty dependencies
   - `ros_gz_bridge`
 
@@ -64,7 +64,7 @@
 
   This repo includes:
 
-  - Gazebo Jetty source submodules (`gz-math`, `gz-msgs11`, `gz-fuel-tools10`, etc.)
+  - Gazebo Jetty source submodules (`gz-math`, `gz-msgs12`, `gz-fuel-tools11`, etc.)
   - Patches for macOS builds
   - ROS 2 integration compatibility
   - Ability to build the entire stack from source without relying on Homebrew
