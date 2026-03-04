@@ -62,3 +62,7 @@
 	path = gz-sim
 	url = https://github.com/gazebosim/gz-sim
 	branch = gz-sim8
+[submodule "dependencies/protobuf"]
+	path = dependencies/protobuf
+	url = https://github.com/protocolbuffers/protobuf.git
+	branch = v32.0

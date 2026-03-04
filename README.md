@@ -38,6 +38,14 @@ may fail.
 
 ## ✔️ Solution
 
+Instead of using the Homebrew protobuf package, uninstall or unlink it:
+
+```bash
+    brew uninstall protobuf
+    # or
+    brew unlink protobuf
+```
+
 Instead of using the Homebrew Boost package, use the **provided Boost 1.89** in `dependencies/boost-1.89` when building the workspace. This ensures **all packages are built with a compatible Boost version**.
 
 ---
@@ -62,24 +70,33 @@ git clone --recurse-submodules https://github.com/idesign0/gz-macOS.git -b harmo
 cd <this-repo>
 ```
 
-Build all Gazebo Harmonic packages from source:
-
+Build Protobuf First:
 ```bash
 colcon build \
-  --executor parallel \
-  --parallel-workers $(sysctl -n hw.ncpu) \
-  --cmake-args \
-      -DBUILD_TESTING=OFF \
-      -DCMAKE_BUILD_TYPE=Release \
-      -DBOOST_ROOT=$(pwd)/src/dependencies/boost-1.89 \
-      -DCMAKE_MACOSX_RPATH=FALSE \
-      -DCMAKE_INSTALL_NAME_DIR=$(pwd)/install/lib \
-  --merge-install \
-  --continue-on-error
+    --packages-select protobuf \
+    --executor parallel \
+    --parallel-workers $(sysctl -n hw.ncpu) \
+    --cmake-args -DBUILD_TESTING=OFF \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DBOOST_ROOT=$(pwd)/src/dependencies/boost-1.89 \
+    --merge-install \
+    --continue-on-error
 ```
-
-> Note: There is no Protobuf version mismatch in Harmonic; the main dependency to manage is Boost.
-
+Build rest of gazebo-harmonic packages:
+```bash
+colcon build \
+    --packages-ignore protobuf \
+    --executor parallel \
+    --parallel-workers $(sysctl -n hw.ncpu) \
+    --cmake-args \
+        -DBUILD_TESTING=OFF \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DBOOST_ROOT=$(pwd)/src/dependencies/boost-1.89 \
+        -DCMAKE_MACOSX_RPATH=FALSE \
+        -DCMAKE_INSTALL_NAME_DIR=$(pwd)/install/lib \
+    --merge-install \
+    --continue-on-error
+```
 ---
 
 ## 🟢 Verification
