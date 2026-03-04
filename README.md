@@ -99,9 +99,9 @@ colcon build \
     --cmake-args \
         -DBUILD_TESTING=OFF \
         -DCMAKE_BUILD_TYPE=Release \
-        -DBOOST_ROOT=$(pwd)/src/dependencies/boost-1.89 \
         -DCMAKE_MACOSX_RPATH=FALSE \
         -DCMAKE_INSTALL_NAME_DIR=$(pwd)/install/lib \
+        -DCMAKE_PREFIX_PATH="$(brew --prefix qt6)" \
     --merge-install \
     --continue-on-error
 ```
@@ -132,4 +132,5 @@ colcon build \
 
   ## Result
 
-  <img width="1440" height="900" alt="Screenshot 2025-12-08 at 18 27 10" src="https://github.com/user-attachments/assets/86688ca6-475f-4d57-a2dc-e895e1385ca2" />
+<img width="1439" height="865" alt="Screenshot 2026-03-04 at 15 07 35" src="https://github.com/user-attachments/assets/378e2c18-f95e-419c-8fd9-172a952674e9" />
+
