@@ -75,7 +75,7 @@
 
   Clone the repository with all submodules:
 
-      git clone --recurse-submodules <this-repo>
+      git clone --recurse-submodules https://github.com/idesign0/gz-macOS.git -b ionic
       cd <this-repo>
 
 Build Protobuf First:
