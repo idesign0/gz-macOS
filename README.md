@@ -42,9 +42,11 @@
 
   Instead of using the Homebrew protobuf package, uninstall or unlink it:
 
-      brew uninstall protobuf
-      # or
-      brew unlink protobuf
+    ```bash
+        brew uninstall protobuf
+        # or
+        brew unlink protobuf
+    ```
 
   Then build the correct protobuf version (**32.1**) from source, which is included in this repository under:
 
